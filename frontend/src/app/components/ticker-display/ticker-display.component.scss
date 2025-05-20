@@ -1,0 +1,110 @@
+.ticker-display-container {
+  /* Remover flex e centralização */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: flex-start; */
+
+  .mat-mdc-card {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  .mat-mdc-table {
+    width: 100%;
+    min-width: 900px;
+    border-spacing: 0 12px;
+  }
+
+  .mat-mdc-header-cell {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 18px 20px;
+    text-align: left;
+  }
+
+  .mat-mdc-cell {
+    font-size: 16px;
+    padding: 18px 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mat-mdc-cell:last-child, .mat-mdc-header-cell:last-child {
+    text-align: right;
+  }
+
+  .mat-mdc-cell:nth-child(n+2), .mat-mdc-header-cell:nth-child(n+2) {
+    text-align: right;
+  }
+
+  .positive {
+    color: #4caf50;
+    font-weight: 600;
+  }
+
+  .negative {
+    color: #f44336;
+    font-weight: 600;
+  }
+
+  .mat-mdc-card-content {
+    overflow-x: auto;
+  }
+
+  .col-symbol {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .col-last-price {
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .col-best-bid {
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .col-best-ask {
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .col-price-change {
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .col-symbol,
+    .col-last-price,
+    .col-best-bid,
+    .col-best-ask,
+    .col-price-change {
+      width: auto;
+      min-width: unset;
+      max-width: unset;
+    }
+  }
+} 

@@ -1,0 +1,45 @@
+<div class="ticker-display-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Price Updates</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="getTickerValues()" class="mat-elevation-z8">
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef class="col-symbol">Symbol</th>
+          <td mat-cell *matCellDef="let ticker" class="col-symbol">{{ticker.s}}</td>
+        </ng-container>
+
+        <!-- Last Price Column -->
+        <ng-container matColumnDef="lastPrice">
+          <th mat-header-cell *matHeaderCellDef class="col-last-price">Last Price</th>
+          <td mat-cell *matCellDef="let ticker" class="col-last-price">{{ticker.c}}</td>
+        </ng-container>
+
+        <!-- Best Bid Column -->
+        <ng-container matColumnDef="bestBid">
+          <th mat-header-cell *matHeaderCellDef class="col-best-bid">Best Bid</th>
+          <td mat-cell *matCellDef="let ticker" class="col-best-bid">{{ticker.b}}</td>
+        </ng-container>
+
+        <!-- Best Ask Column -->
+        <ng-container matColumnDef="bestAsk">
+          <th mat-header-cell *matHeaderCellDef class="col-best-ask">Best Ask</th>
+          <td mat-cell *matCellDef="let ticker" class="col-best-ask">{{ticker.a}}</td>
+        </ng-container>
+
+        <!-- Price Change Column -->
+        <ng-container matColumnDef="priceChange">
+          <th mat-header-cell *matHeaderCellDef class="col-price-change">Price Change %</th>
+          <td mat-cell *matCellDef="let ticker" class="col-price-change" [ngClass]="getPriceChangeClass(ticker)">
+            {{ticker.P}}%
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['symbol', 'lastPrice', 'bestBid', 'bestAsk', 'priceChange']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['symbol', 'lastPrice', 'bestBid', 'bestAsk', 'priceChange'];"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div> 

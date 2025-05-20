@@ -1,0 +1,36 @@
+<div class="watch-list-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Watch List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="watchListForm" (ngSubmit)="addSymbol()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Select Symbol</mat-label>
+          <mat-select formControlName="symbol">
+            <mat-option *ngFor="let symbol of availableSymbols" [value]="symbol">
+              {{symbol}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="watchListForm.get('symbol')?.hasError('required')">
+            Symbol is required
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!watchListForm.valid">
+          Add to Watch List
+        </button>
+      </form>
+
+      <div class="selected-symbols">
+        <h3>Selected Symbols</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let symbol of selectedSymbols">
+            <span matListItemTitle>{{symbol}}</span>
+            <button mat-icon-button color="warn" (click)="removeSymbol(symbol)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card-content>
+ 
